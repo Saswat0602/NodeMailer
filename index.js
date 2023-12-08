@@ -63,26 +63,26 @@ app.post("/api/verify-otp", (req, res) => {
   }
 });
 
-// app.post("/api/send-email", (req, res) => {
-//   const { to, subject, text } = req.body;
+app.post("/api/demo-mail", (req, res) => {
+  const { to, subject, text } = req.body;
 
-//   const mailOptions = {
-//     from: process.env.EMAIL,
-//     to,
-//     subject,
-//     text,
-//   };
+  const mailOptions = {
+    from: process.env.EMAIL,
+    to,
+    subject,
+    text,
+  };
 
-//   transporter.sendMail(mailOptions, (error, info) => {
-//     if (error) {
-//       console.error("Error sending email:", error);
-//       res.status(500).json({ error: "Failed to send email" });
-//     } else {
-//       console.log("Email sent: " + info.response);
-//       res.status(200).json({ message: "Email sent successfully" });
-//     }
-//   });
-// });
+  transporter.sendMail(mailOptions, (error, info) => {
+    if (error) {
+      console.error("Error sending email:", error);
+      res.status(500).json({ error: "Failed to send email" });
+    } else {
+      console.log("Email sent: " + info.response);
+      res.status(200).json({ message: "Email sent successfully" });
+    }
+  });
+});
 
 
 
